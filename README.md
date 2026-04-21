@@ -15,22 +15,31 @@ tulipmania is that loop, plus:
 - graceful SIGINT handling, iteration caps, optional per-iteration git push
 - dry-run mode for testing your configuration without burning tokens
 
-Runtime: Python 3.11+, stdlib only.
+Runtime: Python 3.11+, stdlib only. Managed with [uv](https://docs.astral.sh/uv/).
 
 ---
 
 ## Install
 
-From source (editable):
+Install as a CLI tool (recommended for end users):
 
 ```bash
-pip install -e .
+uv tool install .          # from a clone
+# or: uv tool install git+https://github.com/<you>/tulipmania
+tulipmania --help
 ```
 
-Or run without installing:
+Develop on the source (editable):
 
 ```bash
-python -m tulipmania --help
+uv sync                    # creates .venv, installs tulipmania
+uv run tulipmania --help   # run via the project env
+```
+
+One-off without installing:
+
+```bash
+uv run --with . tulipmania --help
 ```
 
 ## Quickstart
@@ -42,6 +51,9 @@ $EDITOR specs/your-first-spec.md        # write one topic-of-concern spec
 tulipmania plan --max 2                 # generate IMPLEMENTATION_PLAN.md
 tulipmania build --max 20               # loop until done or cap hit
 ```
+
+Substitute `uv run tulipmania ...` for every command if you installed via
+`uv sync` instead of `uv tool install`.
 
 ## Commands
 
