@@ -1,0 +1,34 @@
+# tulipmania configuration
+# Docs: https://github.com/rickliu/tulipmania (adjust URL as needed)
+
+[agent]
+# Which built-in adapter to use. Options: claude, codex, amp, opencode, gemini, aider
+# Or define a fully custom adapter under [agents.<name>] below.
+name = "claude"
+# Optional model override. If omitted, the adapter's default_model is used.
+# model = "opus"
+
+[loop]
+# Push to origin after every iteration. Disable for offline / sandbox work.
+push = true
+
+# Override prompt file paths (relative to project root).
+# [prompts]
+# plan = "PROMPT_plan.md"
+# build = "PROMPT_build.md"
+# plan-work = "PROMPT_plan_work.md"
+
+# --- Adapter overrides / custom adapters ---
+# Uncomment and edit to define your own. `{model}` is substituted at runtime.
+# If `stdin_prompt = false`, use `{prompt_file}` in `command` to receive the path.
+#
+# [agents.codex]
+# command = ["codex", "exec", "--model", "{model}"]
+# default_model = "gpt-5"
+# stdin_prompt = true
+#
+# [agents.my-custom-agent]
+# command = ["my-cli", "--auto", "--model", "{model}"]
+# default_model = "fast"
+# stdin_prompt = true
+# env = { MY_CLI_YOLO = "1" }

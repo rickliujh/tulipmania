@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tulipmania"
+version = "0.1.0"
+description = "Autonomous coding orchestration layer implementing the Ralph method."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+authors = [{ name = "Rick Liu" }]
+keywords = ["ralph", "agent", "autonomous", "coding", "llm"]
+
+[project.scripts]
+tulipmania = "tulipmania.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+tulipmania = ["templates/*.md", "templates/*.toml"]
